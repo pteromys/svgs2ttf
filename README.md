@@ -84,9 +84,11 @@ Some customizations might be best done by editing the script. (See the
   $ svgs2ttf <(json_reformat < with_comments.json)
   ```
 
-* It's better if the input pictures are just plain filled paths. Fontforge
+* It's better if the input pictures are just plain filled paths. FontForge
   tries to do the right thing for stroked paths and unions of overlapping
-  regions, but support for clipping is missing (fontforge#1276),
-  and some interactions between stroke expansion and overlap removal
-  (e.g. fontforge#1374) were only recently corrected.
+  regions, but support for clipping is missing
+  ([fontforge#1276](https://github.com/fontforge/fontforge/issues/1276)),
+  and some interactions between stroke expansion and overlap removal (e.g.
+  [fontforge#1374](https://github.com/fontforge/fontforge/issues/1374))
+  were only recently corrected.
 

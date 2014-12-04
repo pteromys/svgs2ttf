@@ -31,12 +31,17 @@ def setProperties(font, config):
 def addGlyphs(font, config):
     for k, v in config['glyphs'].items():
         g = font.createMappedChar(int(k, 0))
+        # Get outlines
         src = '%s.svg' % k
         if not isinstance(v, dict):
             v = {'src': v or src}
         src = v.pop('src', src)
         g.importOutlines('%s/%s' % (SOURCE_DIR, src), IMPORT_OPTIONS)
         g.removeOverlap()
+        # Copy attributes
+        for k2, v2 in v.items():
+            if k2[:1] != '_':
+                setattr(g, k2, v2)
 
 def main(config_file):
     config = loadConfig(config_file)

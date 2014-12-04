@@ -1,0 +1,32 @@
+{ "props":
+  { "ascent": 96
+  , "descent": 32
+  , "em": 128
+  , "encoding": "UnicodeFull"
+  , "lang": "English (US)"
+  , "family": "Example"
+  , "style": "Regular"
+  , "familyname": "Example"
+  , "fontname": "Example-Regular"
+  , "fullname": "Example Regular"
+  }
+, "glyphs":
+  { "0x3f": { "src": "question.svg", "width": 128 }
+  , "0xab": { "src": "back.svg", "width": 128 }
+  , "0x263a": ""
+  , "0x2723": "overlap-test.svg"
+  , "0x1f304": "outline-test.svg"
+  }
+, "sfnt_names":
+  [ ["English (US)", "Copyright", "Copyright (c) 2014 by Nobody"]
+  , ["English (US)", "Family", "Example"]
+  , ["English (US)", "SubFamily", "Regular"]
+  , ["English (US)", "UniqueID", "Example 2014-12-04"]
+  , ["English (US)", "Fullname", "Example Regular"]
+  , ["English (US)", "Version", "Version 001.000"]
+  , ["English (US)", "PostScriptName", "Example-Regular"]
+  ]
+, "input": "."
+, "output": [ "example.ttf", "example.svg", "example.woff" ]
+, "# vim: set et sw=2 ts=2 sts=2:": false
+}

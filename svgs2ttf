@@ -1,9 +1,9 @@
 #!/usr/bin/fontforge -script
 
+import os.path
 import json
 
 PROPS = ('ascent', 'descent', 'em', 'familyname', 'fontname', 'fullname', 'encoding')
-SOURCE_DIR = '.'
 IMPORT_OPTIONS = ('removeoverlap', 'correctdir')
 
 def loadConfig(filename='font.json'):
@@ -35,8 +35,8 @@ def addGlyphs(font, config):
         src = '%s.svg' % k
         if not isinstance(v, dict):
             v = {'src': v or src}
-        src = v.pop('src', src)
-        g.importOutlines('%s/%s' % (SOURCE_DIR, src), IMPORT_OPTIONS)
+        src = '%s%s%s' % (config.get('input', '.'), os.path.sep, v.pop('src', src))
+        g.importOutlines(src, IMPORT_OPTIONS)
         g.removeOverlap()
         # Copy attributes
         for k2, v2 in v.items():
@@ -45,6 +45,7 @@ def addGlyphs(font, config):
 
 def main(config_file):
     config = loadConfig(config_file)
+    os.chdir(os.path.dirname(config_file) or '.')
     font = fontforge.font()
     setProperties(font, config)
     addGlyphs(font, config)

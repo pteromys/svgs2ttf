@@ -4,6 +4,7 @@ import json
 
 PROPS = ('ascent', 'descent', 'em', 'familyname', 'fontname', 'fullname', 'encoding')
 SOURCE_DIR = '.'
+IMPORT_OPTIONS = ('removeoverlap', 'correctdir')
 
 def loadConfig(filename='font.json'):
     with open(filename) as f:
@@ -30,7 +31,8 @@ def setProperties(font, config):
 def addGlyphs(font, config):
     for k, v in config['glyphs'].items():
         g = font.createMappedChar(int(k, 0))
-        g.importOutlines('%s/%s' % (SOURCE_DIR, v['src']))
+        g.importOutlines('%s/%s' % (SOURCE_DIR, v['src']), IMPORT_OPTIONS)
+        g.removeOverlap()
 
 def main(config_file):
     config = loadConfig(config_file)

@@ -22,6 +22,8 @@ def setProperties(font, config):
         font.fullname = family + ' ' + style
     for k, v in config['props'].items():
         if hasattr(font, k):
+            if isinstance(v, list):
+                v = tuple(v)
             setattr(font, k, v)
         else:
             font.appendSFNTName(lang, k, v)
@@ -41,6 +43,8 @@ def addGlyphs(font, config):
         # Copy attributes
         for k2, v2 in v.items():
             if hasattr(g, k2):
+                if isinstance(v2, list):
+                    v2 = tuple(v2)
                 setattr(g, k2, v2)
 
 def main(config_file):

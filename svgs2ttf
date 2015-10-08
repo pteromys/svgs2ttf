@@ -6,6 +6,11 @@ import json
 
 IMPORT_OPTIONS = ('removeoverlap', 'correctdir')
 
+try:
+    unicode
+except NameError:
+    unicode = str
+
 def loadConfig(filename='font.json'):
     with open(filename) as f:
         return json.load(f)

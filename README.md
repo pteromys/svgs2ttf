@@ -2,20 +2,21 @@
 
 ## Description
 
-A homebrew FontForge + Python 2 script to generate fonts from a directory of
+A homebrew FontForge + Python script to generate fonts from a directory of
 SVG files (or other outline formats importable by FontForge) and some JSON
 metadata.
 
 Not to be confused with [svg2ttf](http://fontforge.github.io/generate.html).
 Users with more sophisticated needs probably want
-[Font Custom](http://fontcustom.com/)
-or [grunt-webfont](https://github.com/sapegin/grunt-webfont).
+[Font Custom](http://fontcustom.com/),
+[grunt-webfont](https://github.com/sapegin/grunt-webfont), or
+[IcoMoon](https://icomoon.io/).
 
 ## Dependencies
 
 * [FontForge](http://fontforge.github.io/)
   (A version with python. Developed on 20140101)
-* [Python 2](https://www.python.org) >= 2.6
+* [Python](https://www.python.org) >= 2.6 or 3
 
 ## Usage
 
